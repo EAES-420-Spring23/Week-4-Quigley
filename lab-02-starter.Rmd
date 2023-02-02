@@ -51,18 +51,20 @@ ggplot(data = plastic_waste,
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+The scatterplot reveals a slight positive correlation between increased plastic waste per capita and mismanaged plastic waste per capita. This means the more a country mismanages their plastic waste, the more likely they are to also produce more plastic waste. 
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(plastic_waste, aes(plastic_waste_per_cap, mismanaged_plastic_waste_per_cap)) +
+  geom_point()
 ```
 
 ### Exercise 6
 
-Remove this text, and add your answer for Exercise 6 here.
+Europe has some of the highest rates of plastic waste per capita, but typically manages their waste better than other continents. North America also has high plastic waste per capita, but typically mismanage their plastic waste the most of other continents. :(
 
 ```{r plastic-waste-mismanaged-continent}
-# insert code here
+ggplot(plastic_waste, aes(plastic_waste_per_cap, mismanaged_plastic_waste_per_cap, color = continent)) +
+  geom_point(alpha = .4)
 ```
 
 ### Exercise 7
