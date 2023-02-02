@@ -19,7 +19,7 @@ plastic_waste <- read_csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+This is the plastic waste per capita by continent code and histograms.
 
 ```{r plastic-waste-continent}
 ggplot(plastic_waste, aes(plastic_waste_per_cap)) +
@@ -30,12 +30,13 @@ facet_wrap(~ continent)
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, color = continent, fill = continent)) +
+  geom_density(alpha = .11)
 ```
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+The color and fill I want to correlate with data, but the alpha I want to apply to the whole graph, so I put fill and color into the aes argument and alpha() into the geom_xxxx() argument. 
 
 ### Exercise 4
 
