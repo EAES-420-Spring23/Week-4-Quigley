@@ -40,10 +40,13 @@ The color and fill I want to correlate with data, but the alpha I want to apply 
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+The violin plot shows the number of data points per plastic waste per capita as width of each figure. 
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = continent, 
+                     y = plastic_waste_per_cap)) +
+  geom_violin()
 ```
 
 ### Exercise 5
