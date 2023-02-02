@@ -69,20 +69,34 @@ ggplot(plastic_waste, aes(plastic_waste_per_cap, mismanaged_plastic_waste_per_ca
 
 ### Exercise 7
 
-Remove this text, and add your answer for Exercise 7 here.
+I plotted population data on the x-axis and plastic waste per capita on the y-axis, because it makes clearer that increases in coastal population does not significantly increase plastic waste per cap. 
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(plastic_waste, aes(total_pop, plastic_waste_per_cap, color = continent)) +
+  geom_point(alpha = .25)
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(plastic_waste, aes(coastal_pop, plastic_waste_per_cap, color = continent)) +
+  geom_point(alpha = .25)
 ```
 
 ### Exercise 8
 
-Remove this text, and add your answer for Exercise 8 here.
+This graph gets the proportion of the population which lives on the coast by dividing the data sets coastal_pop/total_pop. It then plots the proportion of the population living on the coast with the plastic waste per capita. It then filters out the Trinidad by only using data from plastic_waste_per_capita of values below 3. Each plot point is color coded by continent. Geom_smooth() shows a trend line of the data. 
 
 ```{r recreate-viz}
-# insert code here
+plastic_waste %>% 
+  mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
+  filter(plastic_waste_per_cap < 3) %>%
+  ggplot(aes(x = coastal_pop_prop, y = plastic_waste_per_cap, color = continent)) + 
+    geom_point() +
+    geom_smooth(color = "black") +
+    scale_color_viridis_d() +
+    labs(x = "Coastal population proportion (Coastal / total population)", 
+         y = "Plastic waste per capita ", 
+         color = "Continent",
+         title = "Plastic waste vs. coastal population proportion",
+         subtitle = "by continent") +
+    theme_minimal()
 ```
