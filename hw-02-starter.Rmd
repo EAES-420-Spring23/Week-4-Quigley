@@ -20,7 +20,7 @@ The dataset has `r nrow(wat_san)` rows.
 
 ### Exercise 2
 
-Insert your answer here...
+The rows represent countries.
 
 ### Exercise 3
 
