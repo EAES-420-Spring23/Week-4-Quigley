@@ -24,10 +24,12 @@ The rows represent countries.
 
 ### Exercise 3
 
-Insert your answer here...
+#The data says that over time, the percentage of people with no access to sanitation has decreased. The number of countries where everybody has access to sanitation has increased. 
 
-```{r no-sanitation-years}
-
+```{r no-sanitation-years, fig.height=6, fig.width=6}
+ggplot(wat_san, aes(sanitation_none)) +
+  geom_histogram(binwidth = 9)+
+  facet_wrap(~ Year, ncol = 5)
 ```
 
 ### Exercise 4
