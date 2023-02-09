@@ -29,23 +29,30 @@ The rows represent countries.
 ```{r no-sanitation-years, fig.height=6, fig.width=6}
 ggplot(wat_san, aes(sanitation_none)) +
   geom_histogram(binwidth = 9)+
+  labs(
+    x = "Percentage Pop",
+    y = "Countries")+
   facet_wrap(~ Year, ncol = 5)
 ```
 
 ### Exercise 4
 
-Insert your answer here...
-
 ```{r bottom-5-2000}
-
+wat_san %>% 
+   filter(Year == 2000) %>% 
+   arrange(desc(sanitation_none))
 ```
+There doesn't seem to be a correlation between water none and sanitation none
 
 ### Exercise 5
 
-Insert your answer here...
+The graph shows no correlation between sanitation and water access. 
 
 ```{r all-2000-plot}
-
+wat_san %>% 
+   filter(Year == 2000) %>% 
+   ggplot(aes(water_none, sanitation_none)) +
+     geom_point(alpha = .3)
 ```
 
 ### Exercise 6
