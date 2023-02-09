@@ -67,10 +67,30 @@ wat_san %>%
 
 ### Exercise 7
 
-Insert your answer here...
+The rates of no sanitation and no water has on average decreased across all countries between the years 2000 and 2020. This likely correlates with increased water and sanitation infrastructure in place around the world. 
 
 ```{r progress-summary}
-  
+wat_san %>% 
+  filter(Year == 2000 & Entity != "World" | Year == 2020 & Entity != "World") %>% 
+  # this line uses a combination of logical operators (== (equal to), & (and), != (is not equal to), | (or))
+  # this combination filters for the two years provided, while excluding any data associated with the "World" Entity
+  group_by(Year) %>% 
+  # this line groups all the data by Year, so that any summary statistics specified below are computed for each group
+  summarize(water_none_min = min(water_none, na.rm = T),
+            water_none_mean = mean(water_none, na.rm = T),
+            water_none_median = median(water_none, na.rm = T),
+            water_none_stdev = sd(water_none, na.rm = T),
+            water_none_iqr = IQR(water_none, na.rm = T),
+            water_none_max = max(water_none, na.rm = T),
+            
+            sanitation_none_min = min(sanitation_none, na.rm = T),
+            sanitation_none_mean = mean(sanitation_none, na.rm = T),
+            sanitation_none_median = median(sanitation_none, na.rm = T),
+            sanitation_none_stdev = sd(sanitation_none, na.rm = T),
+            sanitation_none_iqr = IQR(sanitation_none, na.rm = T),
+            sanitation_none_max = max(sanitation_none, na.rm = T)
+
+            )
 ```
 
 ### Exercise 8
