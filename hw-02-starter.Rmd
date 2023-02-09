@@ -95,8 +95,12 @@ wat_san %>%
 
 ### Exercise 8
 
-Insert your answer here...
+This graph shows the different rates of change between the 5 countries with the worst access to sanitation per person. The rates of change are not equal, but often are changing faster than the world average. This statistic may be due to countries with developed sanitation infrastructure will have little change to access of sanitation infrastructure, so it might be interesting to compare the average rate of change between only countries that have a significant change in sanitation access between 2000 and 2020. 
+Cambodia had the worst rate of sanitation access, but also has had the quickest development. Yay toilets!
 
 ```{r country-global-changes}
-
+wat_san %>% 
+  filter(Entity == "World" | Entity == "India" | Entity == "Cambodia" | Entity == "Eritrea" | Entity == "Niger" | Entity == "Ethiopia") %>% 
+  ggplot(aes(x = Year, y = sanitation_none, color = Entity)) +
+  geom_line()
 ```
