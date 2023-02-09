@@ -57,10 +57,12 @@ wat_san %>%
 
 ### Exercise 6
 
-Insert your answer here...
+The countries with high rates of no sanitation have changed between 2000 and 2020, but many of the same countries with no sanitation access remain at a high rate of no sanitation access. :(
 
 ```{r bottom-5-2020}
-
+wat_san %>% 
+   filter(Year == 2020) %>% 
+   arrange(desc(sanitation_none))
 ```
 
 ### Exercise 7
