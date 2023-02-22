@@ -14,7 +14,7 @@ wat_san <- read_csv("data/water-and-sanitation.csv")
 
 ## Exercises
 
-### Exercise 1
+### Exercise 1  -.5
 
 The dataset has `r nrow(wat_san)` rows.
 
